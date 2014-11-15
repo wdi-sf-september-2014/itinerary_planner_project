@@ -1,0 +1,15 @@
+<div class="container">
+	<div style="margin-top: 50px">
+	<a href="<%=new_itinerary_waypoint_path%>" class="btn btn-primary pull-left">Add a Waypoint</a>
+	</div>
+	<br>
+	<hr/>
+	<% @waypoints.each do |w| %>
+		<div style="margin-top: 10px">
+			<h3>Attraction: <small><%= w.name %></small></h3>
+			<h3>Address: <small><%= w.location %></small></h3>
+			<h3>Date of Visit: <small><%= w.visit_date %></small></h3>
+			<a href="<%= edit_itinerary_waypoint_path(w.id)%>" class="btn btn-primary pull-left" style="margin-left:20px">Edit Waypoint</a>
+		</div>
+	<%end %>
+</div>

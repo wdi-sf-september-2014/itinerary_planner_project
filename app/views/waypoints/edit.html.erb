@@ -1,0 +1,11 @@
+<div class="container">
+	<%= simple_form_for(@waypoint, method: "put", html: {class: 'form-inline' }) do |f| %>
+		<%= f.text_field(:name, placeholder: "Attraction") %>
+		<%= f.text_field(:location, placeholder: "Address") %>
+		<%= f.date_field(:visit_date, placeholder: "Date of Visit") %>
+		<%= submit_tag("Edit Waypoint") %>
+	<% end %>
+	<%= form_for @waypoint, url: itinerary_waypoint_path(@waypoint.id), method: "delete" do |f| %>
+		<%= submit_tag("Delete Waypoint") %>
+	<% end %>
+</div>

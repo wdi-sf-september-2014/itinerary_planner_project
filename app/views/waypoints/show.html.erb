@@ -1,0 +1,7 @@
+<div>
+	<h3>Attraction: <small><%= w.name %></small></h3>
+	<h3>Address: <small><%= w.location %></small></h3>
+	<h3>Date of Visit: <small><%= w.visit_date %></small></h3>
+	<%= link_to "Edit", edit_itinerary_waypoint_path, class: "btn btn-primary" %>
+	<%= link_to "Back to Itineraries", itineraries_path, class: "btn btn-primary" %>
+</div>

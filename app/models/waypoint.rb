@@ -1,4 +1,4 @@
 class Waypoint < ActiveRecord::Base
-	belongs_to :itinerary
-	has_many :travelers
+	has_many :itineraries_travelers_waypoints
+	has_many :travelers, through: :itinerary_traveler_waypoint
 end

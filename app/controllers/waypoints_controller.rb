@@ -11,7 +11,7 @@ class WaypointsController < ApplicationController
 	def create
 		Waypoint.create(waypoint_params)
 
-		redirect_to itinerary_waypoint_path(@itinerary.id)
+		redirect_to itinerary_waypoints_path(@itinerary.id)
 	end
 
 	def new

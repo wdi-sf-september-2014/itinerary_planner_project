@@ -1,17 +1,17 @@
 class WaypointsController < ApplicationController
-	before_filter :assign_itinerary, only: [:new, :edit]
+	before_filter :assign_itinerary, only: [:index, :create, :new, :edit]
 	before_filter :assign_waypoint, only: [:edit, :show, :update, :destroy]
 
 
 	def index
-		@itinerary = Itinerary.find(params[:itinerary_id])
 		@waypoints = Waypoint.where(itinerary_id: @itinerary.id)
 	end
 
 	def create
-		Waypoint.create(waypoint_params)
+		w = Waypoint.create(waypoint_params)
+		@itinerary.waypoints << w
 
-		redirect_to itinerary_waypoints_path(@itinerary.id)
+		redirect_to itinerary_waypoints_path(params[:itinerary_id])
 	end
 
 	def new
@@ -19,6 +19,7 @@ class WaypointsController < ApplicationController
 	end
 
 	def edit
+		@travelers = @waypoint.travelers
 	end
 
 	def show
@@ -27,6 +28,7 @@ class WaypointsController < ApplicationController
 	def update
 		itinerary = Itinerary.find(params[:itinerary_id])
 		@waypoint.update(waypoint_params)
+		@waypoint.travelers << Traveler.find(params[:waypoint][:traveler])
 
 		redirect_to itinerary_waypoint_path(itinerary.id, @waypoint.id)
 	end

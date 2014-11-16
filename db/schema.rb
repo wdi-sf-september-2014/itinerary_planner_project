@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141115234036) do
+ActiveRecord::Schema.define(version: 20141116205834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,12 +27,14 @@ ActiveRecord::Schema.define(version: 20141115234036) do
   end
 
   create_table "itinerary_traveler_waypoints", id: false, force: true do |t|
-    t.integer  "intinerary_id"
-    t.integer  "traveler_id"
-    t.integer  "waypoint_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "itinerary_id"
+    t.integer "traveler_id"
+    t.integer "waypoint_id"
   end
+
+  add_index "itinerary_traveler_waypoints", ["itinerary_id"], name: "index_itinerary_traveler_waypoints_on_itinerary_id", using: :btree
+  add_index "itinerary_traveler_waypoints", ["traveler_id"], name: "index_itinerary_traveler_waypoints_on_traveler_id", using: :btree
+  add_index "itinerary_traveler_waypoints", ["waypoint_id"], name: "index_itinerary_traveler_waypoints_on_waypoint_id", using: :btree
 
   create_table "travelers", force: true do |t|
     t.string   "first_name"

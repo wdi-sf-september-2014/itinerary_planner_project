@@ -1,17 +1,17 @@
 class TravelersController < ApplicationController
-	before_filter :assign_itinerary, only: [:new, :edit]
+	before_filter :assign_itinerary, only: [:index, :create, :new, :edit]
 	before_filter :assign_traveler, only: [:edit, :show, :update, :destroy]
 
 
 	def index
-		@itinerary = Itinerary.find(params[:itinerary_id])
 		@travelers = Traveler.where(itinerary_id: @itinerary.id)
 	end
 
 	def create
-		Traveler.create(traveler_params.merge(itinerary_id: params[:itinerary_id]))
+		t = Traveler.create(traveler_params)
+		@itinerary.travelers << t
 
-		redirect_to itinerary_traveler_path(params[:itinerary_id])
+		redirect_to itinerary_travelers_path(params[:itinerary_id])
 	end
 
 	def new
@@ -19,6 +19,7 @@ class TravelersController < ApplicationController
 	end
 
 	def edit
+		#@waypoints = @travelers.waypoints
 	end
 
 	def show
@@ -27,6 +28,9 @@ class TravelersController < ApplicationController
 	def update
 		itinerary = Itinerary.find(params[:itinerary_id])
 		@traveler.update(traveler_params)
+		if params[:waypoints]
+			@traveler.waypoints << Waypoint.find(params[:traveler][:waypoint])
+		end
 
 		redirect_to itinerary_traveler_path(itinerary.id, @traveler.id)
 	end

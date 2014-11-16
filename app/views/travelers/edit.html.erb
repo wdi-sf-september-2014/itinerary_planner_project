@@ -1,11 +1,11 @@
 <div class="container">
-	<%= simple_form_for(@traveler, method: "put", html: {class: 'form-inline' }) do |f| %>
+	<%= simple_form_for([@itinerary, @traveler], method: "put", html: {class: 'form-inline' }) do |f| %>
 		<%= f.input(:first_name, placeholder: "First Name") %>
 		<%= f.input(:last_name, placeholder: "Last Name") %>
 		<%= f.input(:email, placeholder: "Email") %>
 		<%= submit_tag("Edit Traveler") %>
 	<% end %>
-	<%= form_for @traveler, url: itinerary_traveler_path(@itinerary.id, @traveler.id), method: "delete" do |f| %>
+	<%= form_for [@itinerary, @traveler], url: itinerary_traveler_path(@itinerary.id, @traveler.id), method: "delete" do |f| %>
 		<%= submit_tag("Delete Traveler") %>
 	<% end %>
 </div>

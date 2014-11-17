@@ -3,5 +3,7 @@
   <%= f.input :name %>
   <%= f.input :origin %>
   <%= f.input :destination %>
+  <%= f.input :depart_on, as: :date %>
+  <%= f.input :return_on, as: :date %>
   <%= f.button :submit, "Save" %>
 <% end %>

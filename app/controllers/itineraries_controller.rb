@@ -4,7 +4,7 @@ class ItinerariesController < ApplicationController
   end
 
   def create
-    @itinerary = Itinerary.create params.require(:itinerary).permit(:name, :origin, :destination)
+    @itinerary = Itinerary.create params.require(:itinerary).permit(:name, :origin, :destination, :depart_on, :return_on)
     unless @itinerary.errors.any?
       redirect_to itinerary_path(@itinerary)
     else 

@@ -1,0 +1,8 @@
+<p><%= itinerary.origin %></p>
+<p><%= itinerary.destination %></p>
+<% unless itinerary.depart_on.blank? %>
+<p><%= itinerary.depart_on.to_formatted_s(:long) %></p>
+<% end %>
+<% unless itinerary.return_on.blank? %>
+<p><%= itinerary.return_on.to_formatted_s(:long) %></p>
+<% end %>

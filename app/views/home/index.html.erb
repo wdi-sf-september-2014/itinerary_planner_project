@@ -5,8 +5,7 @@
   <% @itineraries.each do |itin| %>
   <div class='itinerary'>
     <p><%= itin.name %></p>
-    <p><%= itin.origin %></p>
-    <p><%= itin.destination %></p>
+    <%= render itin %>
   </div>
   <% end %>
 </div>

@@ -1,0 +1,6 @@
+<%= simple_form_for @traveler do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :email, as: :email %> 
+  <%= f.button :submit, "Create" %>
+<% end %>

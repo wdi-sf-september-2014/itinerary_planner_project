@@ -11,7 +11,7 @@ feature "Creating an Itinerary", :type => :feature do
     fill_in "Name", with: "Trip to Paris"
     fill_in "Origin", with: "San Francisco, CA"
     fill_in "Destination", with: "Paris, FR"
-    click_button "Save"
+    click_button "Create"
 
     #3. verify
     # grab a ref to the last created itinerary
@@ -29,7 +29,7 @@ feature "Creating an Itinerary", :type => :feature do
     #2. exercise
     # don't fill in the form with any values
     # and submit it
-    click_button "Save"
+    click_button "Create"
 
     #3. verify
     # expect validation errors to show up for blank fields

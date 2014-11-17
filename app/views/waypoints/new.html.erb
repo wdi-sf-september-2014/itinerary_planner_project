@@ -1,2 +1,6 @@
-<h1>Waypoints#new</h1>
-<p>Find me in app/views/waypoints/new.html.erb</p>
+<h2>New Waypoint for Itinerary <%= @itinerary.name %></h2>
+<%= simple_form_for [@itinerary, @waypoint] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :location %>
+  <%= f.button :submit, "Create" %>
+<% end %>

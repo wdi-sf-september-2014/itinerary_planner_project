@@ -3,13 +3,34 @@
 	<a href="<%= new_itinerary_path %>" class="btn btn-primary pull-left">Add Itinerary</a>
 	</div>
 	<br>
-	<hr/>
+	<hr>
 	<% @itineraries.each do |i| %>
 		<div style="margin-top: 10px">
-			<h3><%= i.name %>, Destination: <%= i.destination %></h3>
-			<a href="/itineraries/<%= i.id %>/waypoints/new" class="btn btn-primary pull-left" style="margin-right:20px">Add a Waypoint</a>
-			<a href="/itineraries/<%= i.id %>/travelers/new" class="btn btn-primary pull-left">Add a Traveler</a>
-			<a href="<%= edit_itinerary_path(i.id)%>" class="btn btn-primary pull-left" style="margin-left:20px">Edit Itinerary</a>
+			<h3><strong><%= i.name %></strong></h3>
+			<h4>Destination: <%= i.destination %></h4>
+			<h4>Trip date: <%= i.departure_date %> - <%= i.return_date %></h4>
+			<h4>Waypoints:</h4>
+			<% i.waypoints.each do |w| %>
+				<div>
+					<p>Attraction: <%= w.name %></p>
+					<p>Location: <%= w.location %></p>
+					<p>Date of visit: <%= w.visit_date %></p>
+				</div>
+			<% end %>
+			<h4>Travelers:</h4>
+			<% i.travelers.each do |t| %>
+				<div>
+					<p>Name: <%= t.first_name %> <%= t.last_name %></p>
+					<p>Email: <%= t.email %></p>
+				</div>
+			<% end %>
+			<div>
+				<a href="/itineraries/<%= i.id %>/waypoints/new" class="btn btn-primary pull-left" style="margin-right:20px">Add a Waypoint</a>
+				<a href="/itineraries/<%= i.id %>/travelers/new" class="btn btn-primary pull-left">Add a Traveler</a>
+				<a href="<%= edit_itinerary_path(i.id)%>" class="btn btn-primary pull-left" style="margin-left:20px">Edit Itinerary</a>
+			</div>
 		</div>
+		<br>
+		<hr>
 	<%end %>
 </div>

@@ -1,7 +1,9 @@
 <div class="container">
 	<div style="margin-top: 50px">
 	<a href="<%=new_itinerary_waypoint_path%>" class="btn btn-primary pull-left">Add a Waypoint</a>
+	<a href="<%= new_itinerary_traveler_path(@itinerary.id)%>" class="btn btn-primary pull-left" style="margin-left:20px">Add a Traveler</a>
 	</div>
+	<a href="<%= itineraries_path%>" class="btn btn-primary pull-right">Back to Itineraries</a>
 	<br>
 	<hr/>
 	<% @itinerary.waypoints.each do |w| %>

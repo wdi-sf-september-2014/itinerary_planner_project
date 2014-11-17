@@ -28,8 +28,9 @@ class WaypointsController < ApplicationController
 	def update
 		itinerary = Itinerary.find(params[:itinerary_id])
 		@waypoint.update(waypoint_params)
+		@waypoint.travelers = []
 		if params[:traveler]
-			@waypoint.travelers << Traveler.find(params[:waypoint][:traveler])
+			@waypoint.tavelers << Traveler.find(params[:waypoint][:travelers])
 		end
 		redirect_to itinerary_waypoint_path(itinerary.id, @waypoint.id)
 	end

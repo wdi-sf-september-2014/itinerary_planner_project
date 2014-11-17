@@ -1,20 +1,24 @@
 <div class="container">
 	<%= simple_form_for([@itinerary, @waypoint], method: "put", html: {class: 'form-inline' }) do |f| %>
-		<%= f.text_field(:name, placeholder: "Attraction") %>
-		<%= f.text_field(:location, placeholder: "Address") %>
-		<%= f.date_field(:visit_date, placeholder: "Date of Visit") %>
-		<% if @waypoint.travelers %>
-		Travelers: <br>
-		
-		<% for t in @travelers %>
-		 <%= check_box_tag :travelers, @traveler.id, @waypoint.travelers.include?(travelers), :name => 'waypoint[traveler_ids][]' -%>
-		<%= t.first_name %> <%= t.last_name %>
-		<% end %>
-		<br>
-		<% end %>
-		<%= f.submit %>
+		<ul>
+			<li><%= f.text_field(:name, placeholder: "Attraction") %></li>
+			<li><%= f.text_field(:location, placeholder: "Address") %></li>
+			<li><%= f.date_field(:visit_date, placeholder: "Date of Visit") %></li>
+			<li><% if @waypoint.travelers %></li>
+				Travelers: <br>
+				
+				<% @waypoint.travelers.each do |t| %>
+				 <li><%= f.check_box :travelers, {checked: @waypoint.travelers.include?(t), multiple: true}, t.id.to_i, nil %></li>
+				<%= t.first_name %> <%= t.last_name %>
+				<% end %>
+				<br>
+			<% end %>
+			<li><%= f.submit %></li>
+		</ul>
 	<% end %>
 	<%= form_for @waypoint, url: itinerary_waypoint_path(@itinerary.id, @waypoint.id), method: "delete" do |f| %>
-		<%= submit_tag("Delete Waypoint") %>
+		<ul>
+			<li><%= submit_tag("Delete Waypoint") %></li>
+		</ul>
 	<% end %>
 </div>

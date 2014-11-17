@@ -6,3 +6,11 @@
 <% unless itinerary.return_on.blank? %>
 <p><%= itinerary.return_on.to_formatted_s(:long) %></p>
 <% end %>
+
+<% if itinerary.waypoints.any? %>
+  <% itinerary.waypoints.each do |w| %>
+    <%= render w %>
+  <% end %>
+<% end %>
+
+<%= link_to "Add Waypoint", new_itinerary_waypoint_path(itinerary) %>

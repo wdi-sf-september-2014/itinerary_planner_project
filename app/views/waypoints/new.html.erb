@@ -3,5 +3,6 @@
   <%= f.input :name %>
   <%= f.input :location %>
   <%= f.input :occurs_on, as: :date %>
+  <%= f.association :travelers, as: :check_boxes, label_method: :full_name %>
   <%= f.button :submit, "Create" %>
 <% end %>

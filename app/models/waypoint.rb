@@ -1,5 +1,6 @@
 class Waypoint < ActiveRecord::Base
   belongs_to :itinerary
+  has_and_belongs_to_many :travelers
   validates_presence_of :name, :location
 
   validate :occurs_on_between_itinerary_depart_and_return_dates

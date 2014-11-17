@@ -1,3 +1,10 @@
 <p>Name: <%= waypoint.name %></p>
 <p>Location: <%= waypoint.location %></p>
 <p>Occurs On: <%= waypoint.occurs_on %></p>
+
+<% if waypoint.travelers.any? %>
+  <h4>Travelers:</h4>
+  <% waypoint.travelers.each do |t| %>
+    <%= t.full_name %>
+  <% end %>
+<% end %>

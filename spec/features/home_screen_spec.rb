@@ -23,12 +23,9 @@ feature "Home Screen", :type => :feature do
     within('#itineraries') do
       # let's make sure we can see all the itineraries
       itins.each_with_index do |itin, index|
-        itin_selector = ".itinerary:nth-child(#{index+1})"
-        within(itin_selector) do
-          expect(page).to have_text itin.name
-          expect(page).to have_text itin.origin
-          expect(page).to have_text itin.destination
-        end
+        expect(page).to have_text itin.name
+        expect(page).to have_text itin.origin
+        expect(page).to have_text itin.destination
       end
     end
   end

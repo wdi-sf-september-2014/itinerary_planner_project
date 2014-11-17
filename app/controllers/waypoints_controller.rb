@@ -6,6 +6,9 @@ class WaypointsController < ApplicationController
 
   def create
     @waypoint = Waypoint.create waypoint_params
+    @waypoint.travelers << Traveler.find(
+      params[:waypoint][:traveler_ids].reject {|id| id.to_i == 0 }.map { |id| id.to_i }
+    )
     unless @waypoint.errors.any?
       redirect_to itinerary_path(params[:itinerary_id])
     else

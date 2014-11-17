@@ -1,11 +1,21 @@
-<h1>Itinerary Planner</h1>
-<h2>Current Itineraries</h2>
-
 <div id="itineraries">
+  <h2>Current Itineraries</h2>
+  <%= link_to "Add Itinerary", new_itinerary_path %>
   <% @itineraries.each do |itin| %>
-  <div class='itinerary'>
-    <h2>Itinerary: <%= itin.name %></h2>
-    <%= render itin %>
+    <div class='itinerary'>
+      <h2>Itinerary: <%= itin.name %></h2>
+      <%= render itin %>
+    </div>
+  <% end %>
+</div>
+
+<div id="travelers">
+  <h2>Current Travelers</h2>
+  <%= link_to "Add Traveler", new_traveler_path %>
+  <% @travelers.each do |traveler| %>
+  <div class='traveler'>
+    <h2>Traveler: <%= traveler.full_name %></h2>
+    <%= render traveler %>
   </div>
   <% end %>
 </div>

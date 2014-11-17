@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :itinerary do
-    name "MyString"
-origin "MyString"
-destination "MyString"
+    name "Trip to Paris"
+    origin "San Francisco, CA"
+    destination "Paris, FR"
   end
 
 end

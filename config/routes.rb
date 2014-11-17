@@ -1,5 +1,5 @@
 ItineraryPlanner::Application.routes.draw do
-  resources :itinerary, only: [:new]
+  resources :itineraries, only: [:new, :create, :index, :show]
   get 'home/index'
   root 'home#index'
 end

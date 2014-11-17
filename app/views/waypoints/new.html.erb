@@ -2,5 +2,6 @@
 <%= simple_form_for [@itinerary, @waypoint] do |f| %>
   <%= f.input :name %>
   <%= f.input :location %>
+  <%= f.input :occurs_on, as: :date %>
   <%= f.button :submit, "Create" %>
 <% end %>

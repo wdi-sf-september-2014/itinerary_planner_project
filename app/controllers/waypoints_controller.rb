@@ -10,13 +10,14 @@ class WaypointsController < ApplicationController
       redirect_to itinerary_path(params[:itinerary_id])
     else
       flash.now[:alert] = "Validation Errors"
+      @itinerary = Itinerary.find params[:itinerary_id]
       render :new
     end
   end
 
   private
   def waypoint_params 
-    params.require(:waypoint).permit(:name, :location)
+    params.require(:waypoint).permit(:name, :location, :occurs_on)
       .merge(itinerary_id: params[:itinerary_id])
   end
 end

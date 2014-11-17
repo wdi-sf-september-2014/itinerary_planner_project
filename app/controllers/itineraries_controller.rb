@@ -29,8 +29,6 @@ class ItinerariesController < ApplicationController
 	end
 
 	def destroy
-		@itinerary.waypoints.destroy_all
-		@itinerary.travelers.destroy_all
 		@itinerary.destroy
 
 		redirect_to "/"

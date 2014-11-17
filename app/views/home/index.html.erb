@@ -1,0 +1,12 @@
+<h1>Itinerary Planner</h1>
+<h2>Current Itineraries</h2>
+
+<div id="itineraries">
+  <% @itineraries.each do |itin| %>
+  <div class='itinerary'>
+    <p><%= itin.name %></p>
+    <p><%= itin.origin %></p>
+    <p><%= itin.destination %></p>
+  </div>
+  <% end %>
+</div>

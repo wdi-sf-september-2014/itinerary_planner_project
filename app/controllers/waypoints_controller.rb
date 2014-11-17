@@ -34,6 +34,9 @@ class WaypointsController < ApplicationController
 	end
 
 	def destroy
+		if @waypoint.travelers.size > 0
+			@waypoint.travelers.destroy_all
+		end
 		@waypoint.destroy
 
 		redirect_to root_path

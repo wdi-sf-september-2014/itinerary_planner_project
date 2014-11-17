@@ -12,14 +12,14 @@
 			<h4>Waypoints:</h4>
 			<% i.waypoints.each do |w| %>
 				<div>
-					<p>Attraction: <%= w.name %></p>
-					<p>Location: <%= w.location %></p>
-					<p>Date of visit: <%= w.visit_date %></p>
-					<p>Travelers</p>
+					<p><strong>Attraction:</strong> <%= w.name %></p>
+					<p><strong>Location:</strong> <%= w.location %></p>
+					<p><strong>Date of visit:</strong> <%= w.visit_date %></p>
+					<p style="text-decoration: underline"><strong>Travelers:</strong></p>
 					<% w.travelers.each do |t| %>
 						<div>
-							<p>Name: <%= t.first_name %> <%= t.last_name %></p>
-							<p>Email: <%= t.email %></p>
+							<p><strong>Name:</strong> <%= t.first_name %> <%= t.last_name %></p>
+							<p><strong>Email:</strong> <%= t.email %></p>
 						</div>
 					<% end %>
 				</div>
@@ -32,8 +32,8 @@
 				</div>
 			<% end %> -->
 			<div>
-				<a href="/itineraries/<%= i.id %>/waypoints/new" class="btn btn-primary pull-left" style="margin-right:20px">Add a Waypoint</a>
-				<a href="/itineraries/<%= i.id %>/travelers/new" class="btn btn-primary pull-left">Add a Traveler</a>
+				<a href="/itineraries/<%= i.id %>/waypoints" class="btn btn-primary pull-left" style="margin-right:20px">View Waypoints</a>
+				<a href="/itineraries/<%= i.id %>/travelers" class="btn btn-primary pull-left">View Travelers</a>
 				<a href="<%= edit_itinerary_path(i.id)%>" class="btn btn-primary pull-left" style="margin-left:20px">Edit Itinerary</a>
 			</div>
 		</div>

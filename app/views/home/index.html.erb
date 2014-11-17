@@ -4,7 +4,7 @@
 <div id="itineraries">
   <% @itineraries.each do |itin| %>
   <div class='itinerary'>
-    <p><%= itin.name %></p>
+    <h2>Itinerary: <%= itin.name %></h2>
     <%= render itin %>
   </div>
   <% end %>

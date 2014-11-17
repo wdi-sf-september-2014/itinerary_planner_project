@@ -1,13 +1,14 @@
-<p><%= itinerary.origin %></p>
-<p><%= itinerary.destination %></p>
+<p>Origin: <%= itinerary.origin %></p>
+<p>Destination: <%= itinerary.destination %></p>
 <% unless itinerary.depart_on.blank? %>
-<p><%= itinerary.depart_on.to_formatted_s(:long) %></p>
+<p>Depart on: <%= itinerary.depart_on.to_formatted_s(:long) %></p>
 <% end %>
 <% unless itinerary.return_on.blank? %>
-<p><%= itinerary.return_on.to_formatted_s(:long) %></p>
+<p>Return on: <%= itinerary.return_on.to_formatted_s(:long) %></p>
 <% end %>
 
 <% if itinerary.waypoints.any? %>
+  <h3>Waypoints</h3>
   <% itinerary.waypoints.each do |w| %>
     <%= render w %>
   <% end %>

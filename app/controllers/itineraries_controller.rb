@@ -4,11 +4,11 @@ class ItinerariesController < ApplicationController
   end
 
   def create
-    @itinerary = Itinerary.create params.require(:itinerary).permit(:name, :origin, :destination, :depart_on, :return_on)
+    @itinerary = Itinerary.create itinerary_params 
     unless @itinerary.errors.any?
       redirect_to itinerary_path(@itinerary)
     else 
-      flash.now[:alert] = "Error"
+      flash.now[:alert] = "Validation Errors"
       render :new
     end
   end
@@ -18,5 +18,10 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find params[:id]
+  end
+
+  private
+  def itinerary_params
+    params.require(:itinerary).permit(:name, :origin, :destination, :depart_on, :return_on)
   end
 end

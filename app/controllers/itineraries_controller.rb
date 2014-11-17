@@ -5,7 +5,12 @@ class ItinerariesController < ApplicationController
 
   def create
     @itinerary = Itinerary.create params.require(:itinerary).permit(:name, :origin, :destination)
-    redirect_to itinerary_path(@itinerary)
+    unless @itinerary.errors.any?
+      redirect_to itinerary_path(@itinerary)
+    else 
+      flash.now[:alert] = "Error"
+      render :new
+    end
   end
 
   def index

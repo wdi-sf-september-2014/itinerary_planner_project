@@ -1,0 +1,11 @@
+<div class="container">
+	<%= simple_form_for(@itinerary, html: {class: 'form-horizontal' }) do |f| %>
+		<ul>
+		<li><%= f.input(:origin, placeholder: "Origin") %></li>
+		<li><%= f.input(:destination, placeholder: "Destination") %></li>
+		<li><%= f.input(:name, placeholder: "Name of Trip") %></li>
+		<li><%= f.date_field(:departure_date, placeholder: "Departing date") %></li>
+		<li><%= f.date_field(:return_date, placeholder: "Return date") %></li>
+		<li><%= submit_tag("Create Itinerary") %></li>
+	<% end %>
+</div>

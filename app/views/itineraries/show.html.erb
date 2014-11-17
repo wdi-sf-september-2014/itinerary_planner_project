@@ -1,0 +1,9 @@
+<div>
+	<h2><%= @itinerary.name %></h2>
+	<p>Origin: <%= @itinerary.origin %></p>
+	<p>Destination: <%= @itinerary.destination %></p>
+	<p>Departure: <%= @itinerary.departure_date %></p>
+	<p>Return: <%= @itinerary.return_date %></p>
+	<%= link_to "Edit", edit_itinerary_path, class: "btn btn-primary" %>
+	<%= link_to "Back to Itinaries", itineraries_path, class: "btn btn-primary" %>
+</div>

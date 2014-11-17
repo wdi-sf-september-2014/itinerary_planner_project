@@ -7,7 +7,7 @@
 			<li><% if @waypoint.travelers %></li>
 				Travelers: <br>
 				
-				<% @waypoint.travelers.each do |t| %>
+				<% @itinerary.travelers.each do |t| %>
 				 <li><%= f.check_box :travelers, {checked: @waypoint.travelers.include?(t), multiple: true}, t.id.to_i, nil %></li>
 				<%= t.first_name %> <%= t.last_name %>
 				<% end %>
